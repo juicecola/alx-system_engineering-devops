@@ -1,2 +1,3 @@
 #!/bin/bash
-mkdir ug+r,u+w,ugo+x my_dir
+mkdir -m ug+r,u+w,ugo+x my_dir
+
