@@ -1,3 +1,4 @@
 #!/bin/bash
 mkdir -m ug+r,u+w,ugo+x my_dir
 
+
