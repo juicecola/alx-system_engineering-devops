@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-echo "PID of current script: $$"
+#Bash script that displays its own PID
+echo $$
