@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-#Highlander
-trap "echo 'I am invincible!!!' && exit 0" SIGTREM
-while true; do
-	echo "To infinity and beyond"
-	sleep 2
-done
