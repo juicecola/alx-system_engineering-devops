@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 #configures the Nginx server so as /redirect_me is redirectint to another page
 
-sudo sed -i '/server_name _;/a \	location /redirect_me {\n		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n	}' /etc/nginx/sites-available/default
-sudo service nginx restart
+sudo apt-get -y install nginx
+sudo bash -c 'echo "Hello World!" > /var/www/html/index.nginx-debian.html'
 
+redirect="\n\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n"
+
+sudo sed -i "53s|.*|$redirect|" /etc/nginx/sites-enabled/default
+
+sudo /etc/init.d/nginx restart
