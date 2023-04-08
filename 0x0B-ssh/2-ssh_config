@@ -1,0 +1,4 @@
+# Configuration for connecting to the server
+Host *
+    User ubuntu
+    IdentityFile ~/.ssh/school
