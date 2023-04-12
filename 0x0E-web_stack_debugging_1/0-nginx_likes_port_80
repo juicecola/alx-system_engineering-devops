@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #create a symbolic link to connect configuration files
-sudo ln -sf /ect/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 sudo service nginx restart
