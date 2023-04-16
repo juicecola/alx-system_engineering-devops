@@ -1,0 +1,27 @@
+When you type "https://www.google.com" into your browser and press Enter, a series of events happen behind the scenes before you see the webpage appear on your screen. These events involve different technologies and protocols that work together to deliver the content from the server to your browser. In this article, we'll explore each of these concepts in detail and explain what happens at each stage of the process.
+
+DNS Request
+The first step in the process is the DNS (Domain Name System) request. When you enter a website's URL into your browser, it sends a request to a DNS server to look up the IP address associated with that domain name. The DNS server returns the IP address, which your computer uses to establish a connection with the server hosting the website.
+
+TCP/IP
+Once your computer has the IP address, it uses the TCP/IP (Transmission Control Protocol/Internet Protocol) suite to establish a connection with the server. The TCP/IP protocol ensures that packets of data are sent and received correctly between your computer and the server, even if some packets get lost or corrupted in transit.
+
+Firewall
+If you have a firewall enabled on your computer, it may block the connection request to the server. In that case, you need to configure the firewall to allow the connection. Firewalls are an essential security measure that protect your computer from unauthorized access and prevent malicious traffic from entering your network.
+
+HTTPS/SSL
+Once the connection is established, your browser initiates an HTTPS (Hypertext Transfer Protocol Secure) request. HTTPS is a secure version of HTTP (Hypertext Transfer Protocol) that uses SSL (Secure Sockets Layer) or TLS (Transport Layer Security) encryption to protect the data transmitted between the browser and server from eavesdropping and tampering. SSL/TLS encryption ensures that the data transmitted between the client and server is secure and cannot be intercepted or modified by third parties.
+
+Load-balancer
+The request is then routed through a load balancer that distributes incoming traffic across multiple servers to ensure that no single server gets overloaded with too much traffic. Load balancers are essential components of high-traffic websites because they help distribute the load evenly across multiple servers, ensuring that the website remains responsive and available to users at all times.
+
+Web Server
+The request reaches a web server, which handles the HTTP request and responds with an HTML document containing the webpage's content. The web server is responsible for processing the HTTP request and generating a response that can be sent back to the client. The web server may also handle other tasks, such as caching frequently accessed content, compressing data, and managing user sessions.
+
+Application Server
+If the webpage contains dynamic content, the web server forwards the request to an application server, which processes the request and generates the appropriate response. An application server is responsible for executing server-side code, such as database queries or business logic, and returning the result to the web server. Application servers are often used in web applications that require dynamic content or user authentication.
+
+Database
+If the application server requires data from a database to generate the response, it sends a request to the database, which responds with the requested data. Databases are essential components of web applications that require persistent data storage, such as e-commerce websites, social networks, or content management systems. Popular databases include MySQL, PostgreSQL, MongoDB, and Cassandra.
+
+In conclusion, typing "https://www.google.com" into your browser and pressing Enter triggers a complex series of events that involve multiple technologies and protocols. Understanding each of these concepts is essential for building and maintaining web applications that are fast, secure, and reliable. By mastering these concepts, you'll be better equipped to tackle real-world challenges in software engineering and impress potential employers with your knowledge and expertise.
