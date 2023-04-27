@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# using REST API for employee ID, returns info bout her TODO list progress
+""" using REST API for employee ID, returns info bout her TODO list progress """
 
 import requests
 import sys
