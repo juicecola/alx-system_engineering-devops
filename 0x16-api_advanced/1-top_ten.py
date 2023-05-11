@@ -1,22 +1,20 @@
 #!/usr/bin/python3
 
-"""prints titles of first 10 hot posts listed for a given subreddit"""
-
-
+"""retrieve top ten hot topics per subreddit"""
 import requests
 
-
 def top_ten(subreddit):
-    url = "https://www.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
-    headers = {"User-Agent": 'CodeZero'}
-    response = requests.get(url, headers=headers, allow_redirects=False)
+    try:
+        url = "https://www.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
+        headers = {"User-Agent": "CodeZero"}
+        response = requests.get(url, headers=headers, allow_redirects=False)
 
-    if response.status_code == 200:
-        data = response.json()
+        if response.status_code == 200:
+            data = response.json()
 
-        for i in data['data']['children']:
-            print(i['data']['title'])
-    else:
-        print(None)
-
-
+            for i in data["data"]["children"]:
+                print(i["data"]["title"])
+        else:
+            print("Error: Unable to retrieve posts from the subreddit")
+    except requests.RequestException as e:
+        print("Error: An exception occured during the API request:", e)
