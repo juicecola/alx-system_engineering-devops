@@ -7,7 +7,7 @@ import requests
 
 
 def top_ten(subreddit):
-    url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit=10"
+    url = "https://www.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
     headers = {"User-Agent": 'CodeZero'}
     response = requests.get(url, headers=headers, allow_redirects=False)
 
