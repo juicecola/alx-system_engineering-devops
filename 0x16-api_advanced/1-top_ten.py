@@ -1,32 +1,20 @@
+#!/usr/bin/python3
+
+"""this coderetrieve top ten hot topics per subreddit"""
 import requests
 
+
 def top_ten(subreddit):
-    """
-    Queries the Reddit API and prints the titles of the first 10 hot posts listed for a given subreddit.
+    """get top ten hot topics"""
 
-    Args:
-        subreddit (str): The subreddit to search.
+    url = "https://www.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
+    headers = {"User-Agent": 'Bazeng'}
+    response = requests.get(url, headers=headers, allow_redirects=False)
 
-    Returns:
-        None
-    """
+    if response.status_code == 200:
+        posts = response.json()
 
-    try:
-        url = "https://www.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
-        headers = {"User-Agent": "MyRedditClient"}
-        response = requests.get(url, headers=headers, allow_redirects=False)
-
-        if response.status_code == 200:
-            data = response.json()
-
-            for post in data["data"]["children"]:
-                title = post["data"]["title"]
-                print(title)
-        else:
-            print("None")
-    except requests.RequestException as e:
-        print("None")
-
-# Example usage
-top_ten("programming")
-
+        for post in posts['data']['children']:
+            print(post['data']['title'])
+    else:
+        print(None)
