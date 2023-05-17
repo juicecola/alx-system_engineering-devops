@@ -1,29 +1,32 @@
-#!/usr/bin/python3
-
 import requests
 
 def top_ten(subreddit):
+    """
+    Queries the Reddit API and prints the titles of the first 10 hot posts listed for a given subreddit.
+
+    Args:
+        subreddit (str): The subreddit to search.
+
+    Returns:
+        None
+    """
+
     try:
         url = "https://www.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
-        headers = {"User-Agent": "CodeZero"}
+        headers = {"User-Agent": "MyRedditClient"}
         response = requests.get(url, headers=headers, allow_redirects=False)
 
         if response.status_code == 200:
             data = response.json()
 
             for post in data["data"]["children"]:
-                print(post["data"]["title"])
+                title = post["data"]["title"]
+                print(title)
         else:
-            print("Error: Unable to retrieve posts from the subreddit")
+            print("None")
     except requests.RequestException as e:
-        print("Error: An exception occurred during the API request:", e)
+        print("None")
 
-# Example usage: python3 1-main.py programming
-if __name__ == "__main__":
-    import sys
+# Example usage
+top_ten("programming")
 
-    if len(sys.argv) < 2:
-        print("Please pass an argument for the subreddit to search.")
-    else:
-        subreddit = sys.argv[1]
-        top_ten(subreddit)
