@@ -12,7 +12,7 @@ def top_ten(subreddit):
         if response.status_code == 200:
             data = response.json()
 
-            for i in data["data"]["children"]:
+            for i in data["data"]["title"]:
                 print(i["data"]["title"])
         else:
             print("Error: Unable to retrieve posts from the subreddit")
