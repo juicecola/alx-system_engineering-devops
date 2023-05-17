@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 
-"""retrieve top ten hot topics per subreddit"""
 import requests
 
 def top_ten(subreddit):
@@ -12,9 +11,19 @@ def top_ten(subreddit):
         if response.status_code == 200:
             data = response.json()
 
-            for i in data["data"]["title"]:
-                print(i["data"]["title"])
+            for post in data["data"]["children"]:
+                print(post["data"]["title"])
         else:
             print("Error: Unable to retrieve posts from the subreddit")
     except requests.RequestException as e:
-        print("Error: An exception occured during the API request:", e)
+        print("Error: An exception occurred during the API request:", e)
+
+# Example usage: python3 1-main.py programming
+if __name__ == "__main__":
+    import sys
+
+    if len(sys.argv) < 2:
+        print("Please pass an argument for the subreddit to search.")
+    else:
+        subreddit = sys.argv[1]
+        top_ten(subreddit)
